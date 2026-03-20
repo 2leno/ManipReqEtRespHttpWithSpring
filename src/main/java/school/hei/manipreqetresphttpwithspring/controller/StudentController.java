@@ -58,7 +58,7 @@ public class StudentController {
             if (acceptHeader == null) {
                 return ResponseEntity
                         .status(HttpStatus.BAD_REQUEST)
-                        .body("Bad request: acceptHeader is required");
+                        .body("Bad request: 'Accept' Header is required");
             }
 
             if (!acceptHeader.equals("text/plain") && !acceptHeader.equals("application/json")) {
