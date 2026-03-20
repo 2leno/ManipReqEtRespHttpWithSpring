@@ -13,7 +13,7 @@ public class StudentController {
 
     @GetMapping("/welcome")
     public String welcome(@RequestParam(value = "name", defaultValue = "HEI") String name) {
-        return "Welcome " + name;
+        return "Welcome, " + name;
     }
 
     @PostMapping("/students")
