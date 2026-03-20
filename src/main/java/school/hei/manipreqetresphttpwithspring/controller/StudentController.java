@@ -18,30 +18,29 @@ public class StudentController {
 
     @PostMapping("/students")
     public String addStudents(@RequestBody List<Student> newStudents) {
-        students.addAll(newStudents);
-
-        if (students.isEmpty()) {
-            return "No students added";
+        if (newStudents == null || newStudents.isEmpty()) {
+            return "No students to add";
         }
 
+        students.addAll(newStudents);
+
         StringBuilder response = new StringBuilder("Students added: ");
-        for (int i = 0; i < students.size(); i++) {
-            response.append(students.get(i).getFullName());
-            if (i < students.size() - 1) {
+        for (int i = 0; i < newStudents.size(); i++) {
+            response.append(newStudents.get(i).getFullName());
+            if (i < newStudents.size() - 1) {
                 response.append(", ");
             }
         }
         return response.toString();
     }
 
-    @GetMapping("students")
-    public String getStudents(@RequestHeader(value = "Checked", defaultValue = "text/plain") String checkedHeader) {
+    @GetMapping("/students")
+    public String getStudents(@RequestHeader(value = "Accept", defaultValue = "text/plain") String acceptHeader) {
+        if (students.isEmpty()) {
+            return "No students added";
+        }
 
-        if ("text/plain".equals(checkedHeader)) {
-            if (students.isEmpty()) {
-                return "No students added";
-            }
-
+        if ("text/plain".equals(acceptHeader)) {
             StringBuilder response = new StringBuilder("List of students:\n");
             for (Student student : students) {
                 response.append("- ").append(student.getFullName())
@@ -50,7 +49,7 @@ public class StudentController {
             }
             return response.toString();
         } else {
-            return "Format not supported. Use Checked: text/plain";
+            return "Format not supported. Use Accept: text/plain";
         }
     }
 }
