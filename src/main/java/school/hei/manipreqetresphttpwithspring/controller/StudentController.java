@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import school.hei.manipreqetresphttpwithspring.entity.StudentService;
-import school.hei.manipreqetresphttpwithspring.validator.BadRequestException;
+import school.hei.manipreqetresphttpwithspring.exception.BadRequestException;
 import school.hei.manipreqetresphttpwithspring.entity.Student;
 import school.hei.manipreqetresphttpwithspring.validator.StudentValidator;
 

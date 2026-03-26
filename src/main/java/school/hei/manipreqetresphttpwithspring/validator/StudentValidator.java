@@ -2,6 +2,7 @@ package school.hei.manipreqetresphttpwithspring.validator;
 
 import org.springframework.stereotype.Component;
 import school.hei.manipreqetresphttpwithspring.entity.Student;
+import school.hei.manipreqetresphttpwithspring.exception.BadRequestException;
 
 import java.util.List;
 

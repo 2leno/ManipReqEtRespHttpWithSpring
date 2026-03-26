@@ -1,4 +1,4 @@
-package school.hei.manipreqetresphttpwithspring.validator;
+package school.hei.manipreqetresphttpwithspring.exception;
 
 public class BadRequestException extends RuntimeException {
 
